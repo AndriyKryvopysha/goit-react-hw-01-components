@@ -6,7 +6,7 @@ const colors = ['#125c75', '#8e25a1', '#6e0f37', '#7eeb7a', '#d99d2e'];
 export const Statistics = ({ title, stats }) => {
   return (
     <section className={s.statistics}>
-      <h2 className={s.title}>{title}</h2>
+      {title && <h2 className={s.title}>{title}</h2>}
 
       <ul className={s.list}>
         {stats.map(({ id, label, percentage }, index) => (

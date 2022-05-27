@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import s from './FriendListItem.module.css';
 
-export const FriendListItem = ({ avatar, name, isOnline, id }) => {
+export const FriendListItem = ({ friend }) => {
+  const { avatar, name, isOnline } = friend;
   return (
     <li className={s.item}>
       <span className={isOnline ? s.active : s.status}></span>
@@ -12,12 +13,9 @@ export const FriendListItem = ({ avatar, name, isOnline, id }) => {
 };
 
 FriendListItem.propTypes = {
-  friends: PropTypes.shape(
-    {
-      avatar: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      inOnline: PropTypes.bool.isRequired,
-      id: PropTypes.number.isRequired,
-    }.isRequired,
-  ),
+  friend: PropTypes.shape({
+    avatar: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    isOnline: PropTypes.bool.isRequired,
+  }).isRequired,
 };
